@@ -8,7 +8,6 @@ end
 get '/mobilize' do
   url = params[:url]
   token = ENV['READABILITY_TOKEN']
-  puts "token=#{token}"
   response = RestClient.get "https://readability.com/api/content/v1/parser?token=#{token}&url=#{url}"
   response
 end
