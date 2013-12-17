@@ -9,5 +9,7 @@ get '/mobilize' do
   content_type :json
   url = params[:url]
   token = ENV['READABILITY_TOKEN']
-  RestClient.get "https://readability.com/api/content/v1/parser?token=#{token}&url=#{url}"
+  response = RestClient.get "https://readability.com/api/content/v1/parser?token=#{token}&url=#{url}"
+  status response.code
+  response
 end
