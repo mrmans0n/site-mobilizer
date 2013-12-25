@@ -10,7 +10,11 @@ get '/mobilize' do
   url = params[:url]
   token = ENV['READABILITY_TOKEN']
   RestClient.get "https://readability.com/api/content/v1/parser?token=#{token}&url=#{url}" do |response, request, result|
-    status response.code
-    response
+    if [301, 302, 307].include? response.code
+      response.follow_redirection(request, result)
+    else 
+      status response.code
+      response
+    end
   end
 end

@@ -17,5 +17,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mime-types (~> 2.0)
   rest-client (~> 1.6.7)
   sinatra (~> 1.4.4)
