@@ -2,7 +2,7 @@ require 'sinatra'
 require 'rest_client'
 
 get '/' do
-  "This is a mobilizer service. For any questions regarding it, please contact nacho[at]nlopez.io"
+  'Up and running!'
 end
 
 get '/mobilize' do
